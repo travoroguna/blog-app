@@ -1,13 +1,12 @@
 # Flask blog app
 
-
+[app is deployed here](https://blogapp-0z78.onrender.com)
 
 ## about
 This app is a blogging app that allows you to use github flavoured markdown 
 to edit your blog, it features an online editor with live preview, syntax highlighting for your code blocks and table of contents just by adding `[TOC]` anywhere in your file.
 
 To create a post first sign in and click New Post on the navigation bar
-
 
 
 ### schema
