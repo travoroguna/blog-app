@@ -4,13 +4,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 
-def create_app(test_config=None) -> flask.Flask:
+def create_app(config=None) -> flask.Flask:
     app = flask.Flask(__name__, instance_relative_config=True)
 
-    if test_config is None:
-        app.config.from_file('config.toml', load=toml.load, silent=True)
+    if config is None:
+        app.config.from_file('configdev.toml', load=toml.load, silent=True)
+        print("config is configdev.toml")
     else:
-        app.config.from_mapping(test_config)
+        app.config.from_file(config, load=toml.load, silent=True)
+        print(f"config is {config}")
+
 
     with app.app_context():
         create_services(app)

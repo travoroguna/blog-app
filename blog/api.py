@@ -14,7 +14,6 @@ class MarkApi(Resource):
 
     def post(self):
         args = parser.parse_args()
-        print(escape(args['mdtext']))
         tmp_html = markdown.markdown(args['mdtext'], extensions=['extra', 'codehilite', 'toc'])
         return {'html': tmp_html}
         
