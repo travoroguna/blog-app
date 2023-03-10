@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% from "formhelpers.html" import render_field %}
+
+<!-- {% block title %}create{% endblock %} -->
+
+{% block content %}
+<div class="post-view">
+    <h1>{{ post_obj.title }}</h1>
+    <div class="post-box">
+        {{ post|safe }}
+    </div>
+</div>
+
+{% endblock %}

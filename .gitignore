@@ -1,0 +1,4 @@
+instance/development.db
+appenv
+__pycache__
+migrations

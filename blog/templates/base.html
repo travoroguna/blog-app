@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/markdown.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/code.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a class="nav-title" href="{{ url_for('blog.index') }}"><h1>Blog</h1></a>
+        
+        <ul class="nav-bar">
+            {% if g.user %}
+            <li class="nav-link nav-item">{{ g.user.username }}</li>
+            {% block url %}{% endblock %}
+            <li class="nav-link nav-item"><a href="{{ url_for('auth.logout') }}">Log Out</a>
+            {% else %}
+            <li class="nav-link nav-item"><a href="{{ url_for('auth.register') }}">Register</a>
+            <li class="nav-link nav-item"><a href="{{ url_for('auth.login') }}">Log In</a>
+            {% endif %}
+        </ul>
+
+    </nav>
+
+    <header>{% block header %}{% endblock %}</header>
+
+    <body>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </body>
+    
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+  
+</body>
+</html>
