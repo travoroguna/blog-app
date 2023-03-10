@@ -5,16 +5,18 @@
 }
 
 body {
-    width: 100vw;
+    /* width: 100vw; */
     height: 100vh;
     display: flex;
-    padding: 0px 20px;
+    padding: 0px 0px;
     flex-direction: column;
+    align-items: center;
 }
 
 .create{
     display: flex;
     height: 80vh;
+    width: 95%;
 }
 
 
@@ -22,7 +24,7 @@ body {
     border: 1px solid lightgray;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     display: flex;
 }
@@ -103,6 +105,7 @@ nav {
     justify-content: space-between;
     margin-bottom: 3vh;
     border-bottom: 1px solid lightgray;
+    width: 90vw;
 }
 
 .nav-title{
@@ -146,6 +149,7 @@ nav h1{
 .auth-form{
     border: 1px solid lightgray;
     padding: 1rem;
+    padding-bottom: 5rem;
     width: 50vw;
     min-width: 360px;
     max-width: 720px;
@@ -342,16 +346,16 @@ body > div > form > input[type=submit] {
 
     .post{
         flex-direction: column;
+        padding: 10px;
+    }
+
+    .post-box{
+        margin: 0rem 2rem;
+    padding: 2rem 2rem;
     }
 
     .post-content{
         height: 200px;
-    }
-
-    .create {
-        display: flex;
-        flex-direction: column;
-        height: max-content;
     }
 
     .post-edit{

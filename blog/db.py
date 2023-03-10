@@ -4,6 +4,9 @@ from typing import Optional
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
+
+POSTS_PER_PAGE = 10
+
 def new_user(username: str, password: str) -> bool:
     if db.session.query(User).filter_by(username=username).first():
         return False
@@ -35,9 +38,8 @@ def new_post(title: str, body: str):
     db.session.add(post)
     db.session.commit()
 
-def get_posts(offset = 0, limit = 10) -> list[Post]:
-    print(db.session.query(Post).all())
-    return db.session.query(Post).limit(limit).all()
+def get_posts(page: int) -> list[Post]:
+    return db.paginate(db.session.query(Post), page=page, per_page=POSTS_PER_PAGE)
 
 def edit_post(post_id: int, title: str, body: str):
     post = db.session.query(Post).filter_by(id=post_id).first()

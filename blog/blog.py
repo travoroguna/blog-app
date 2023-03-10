@@ -5,20 +5,15 @@ import markdown
 from markupsafe import escape
 
 
-def escape(string):
-    return string
-
 marker = markdown.Markdown(extensions=['extra', 'codehilite', 'toc'])
 
 blog = Blueprint('blog', __name__)
-posts_per_page = 10
 
 
 @blog.route('/')
 def index():
-    if g.get("page") is None:
-        g.page = 1
-
+    page = request.args.get('page', 1, type=int)
+    pagination = db.get_posts(page)
     posts = [
         {
             "author": post.author,
@@ -28,9 +23,9 @@ def index():
             "id": post.id,
             "author_id": post.author_id
         }
-        for post in db.get_posts(posts_per_page * g.page)
+        for post in db.get_posts(page)
     ]
-    return render_template("blog/index.html", posts=posts)
+    return render_template("blog/index.html", posts=posts, pagination=pagination)
 
 
 @blog.route('/create', methods=('GET', 'POST'))
