@@ -5,4 +5,5 @@ markdown
 markupsafe
 flask_sqlalchemy
 flask_migrate
+flask_wtf
 toml
