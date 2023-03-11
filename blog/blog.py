@@ -9,6 +9,10 @@ marker = markdown.Markdown(extensions=['extra', 'codehilite', 'toc'])
 
 blog = Blueprint('blog', __name__)
 
+# temporary fix to prevent code from being escaped 
+def escape(string: str) -> str:
+    return string
+
 
 @blog.route('/')
 def index():
