@@ -5,18 +5,16 @@
 }
 
 body {
-    /* width: 100vw; */
+    width: 100vw;
     height: 100vh;
     display: flex;
-    padding: 0px 0px;
+    padding: 0px 20px;
     flex-direction: column;
-    align-items: center;
 }
 
 .create{
     display: flex;
     height: 80vh;
-    width: 95%;
 }
 
 
@@ -24,7 +22,7 @@ body {
     border: 1px solid lightgray;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     display: flex;
 }
@@ -105,7 +103,6 @@ nav {
     justify-content: space-between;
     margin-bottom: 3vh;
     border-bottom: 1px solid lightgray;
-    width: 90vw;
 }
 
 .nav-title{
@@ -149,7 +146,7 @@ nav h1{
 .auth-form{
     border: 1px solid lightgray;
     padding: 1rem;
-    padding-bottom: 5rem;
+    padding-bottom: 10rem;
     width: 50vw;
     min-width: 360px;
     max-width: 720px;
@@ -179,6 +176,10 @@ nav h1{
     width: 300px;
 }
 
+
+.pagination{
+    display: flex;
+}
 
 body > div > form > input[type=submit] {
     margin-top: 4rem;
@@ -338,6 +339,10 @@ body > div > form > input[type=submit] {
 }
 
 @media screen and (max-width: 720px) {
+    .post-box {
+        margin: 0rem 1rem;
+        padding: 1rem 1rem;
+    }
     .decoration{
         min-width: 0;
         height: 200px;
@@ -346,16 +351,16 @@ body > div > form > input[type=submit] {
 
     .post{
         flex-direction: column;
-        padding: 10px;
-    }
-
-    .post-box{
-        margin: 0rem 2rem;
-    padding: 2rem 2rem;
     }
 
     .post-content{
         height: 200px;
+    }
+
+    .create {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
     }
 
     .post-edit{
